@@ -1,0 +1,204 @@
+{
+  "entities": [
+    {
+      "name": "Survey",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "title"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": [
+        {
+          "fields": [
+            "title"
+          ],
+          "name": "unique_survey_title"
+        }
+      ]
+    },
+    {
+      "name": "Question",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "survey_id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "question_text",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "response_type",
+          "type": "varchar",
+          "nullable": false,
+          "values": [
+            "text",
+            "multiple_choice",
+            "rating"
+          ]
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "survey_id"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": [
+        {
+          "fields": [
+            "survey_id",
+            "question_text"
+          ],
+          "name": "unique_question_in_survey"
+        }
+      ]
+    },
+    {
+      "name": "Response",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "question_id",
+          "type": "uuid",
+          "nullable": false
+        },
+        {
+          "name": "response_value",
+          "type": "text",
+          "nullable": false
+        },
+        {
+          "name": "respondent_id",
+          "type": "uuid",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ],
+      "indexes": [
+        {
+          "fields": [
+            "question_id"
+          ],
+          "unique": false
+        },
+        {
+          "fields": [
+            "respondent_id"
+          ],
+          "unique": false
+        }
+      ],
+      "uniques": []
+    },
+    {
+      "name": "Respondent",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": true,
+          "isUnique": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp",
+          "nullable": false
+        }
+      ],
+      "indexes": [],
+      "uniques": [
+        {
+          "fields": [
+            "email"
+          ],
+          "name": "unique_respondent_email"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Survey",
+      "to": "Question",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Question",
+      "to": "Response",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Respondent",
+      "to": "Response",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
