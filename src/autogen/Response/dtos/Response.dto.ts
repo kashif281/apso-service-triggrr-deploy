@@ -10,10 +10,6 @@ export class ResponseCreate {
   response_value: string;
   @ApiProperty()
   respondent_id: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
 
 export class Response {
@@ -25,12 +21,4 @@ export class Response {
   response_value: string;
   @ApiProperty()
   respondent_id: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

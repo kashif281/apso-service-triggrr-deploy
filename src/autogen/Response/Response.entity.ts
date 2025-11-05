@@ -5,8 +5,6 @@
 import {
   Column,
   Entity,
-  CreateDateColumn,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Generated,
   JoinColumn,
@@ -37,12 +35,6 @@ export class Response {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
-
   @Column({ type: 'uuid' })
   question_id: string;
 
@@ -53,12 +45,6 @@ export class Response {
 
   @Column({ type: 'uuid' })
   respondent_id: string;
-
-  @Column({ type: 'timestamp', nullable: false })
-  created_at: Date;
-
-  @Column({ type: 'timestamp', nullable: false })
-  updated_at: Date;
 
   // Associations
 }

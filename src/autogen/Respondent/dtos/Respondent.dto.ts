@@ -8,10 +8,6 @@ export class RespondentCreate {
   name: string;
   @ApiProperty()
   email: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
 
 export class Respondent {
@@ -21,12 +17,4 @@ export class Respondent {
   name: string;
   @ApiProperty()
   email: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

@@ -10,10 +10,6 @@ export class QuestionCreate {
   question_text: string;
   @ApiProperty()
   response_type: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
 
 export class Question {
@@ -25,12 +21,4 @@ export class Question {
   question_text: string;
   @ApiProperty()
   response_type: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }

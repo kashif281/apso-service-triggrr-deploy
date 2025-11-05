@@ -5,8 +5,6 @@
 import {
   Column,
   Entity,
-  CreateDateColumn,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Generated,
   JoinColumn,
@@ -36,12 +34,6 @@ export class Respondent {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
-
   @IsOptional({ groups: [UPDATE] })
   @IsNotEmpty({ groups: [CREATE] })
   @Column({ type: 'varchar', length: 255, nullable: false })
@@ -50,12 +42,6 @@ export class Respondent {
   @IsOptional({ groups: [UPDATE] })
   @Column({ type: 'varchar', length: 255, nullable: true })
   email: string;
-
-  @Column({ type: 'timestamp', nullable: false })
-  created_at: Date;
-
-  @Column({ type: 'timestamp', nullable: false })
-  updated_at: Date;
 
   // Associations
 }

@@ -2,29 +2,22 @@
   "entities": [
     {
       "name": "Survey",
-      "created_at": true,
-      "updated_at": true,
+      "created_at": false,
+      "updated_at": false,
       "fields": [
         {
           "name": "title",
           "type": "varchar",
           "nullable": false,
-          "isIndex": true
+          "isIndex": true,
+          "isUnique": false
         },
         {
           "name": "description",
           "type": "text",
-          "nullable": true
-        },
-        {
-          "name": "created_at",
-          "type": "timestamp",
-          "nullable": false
-        },
-        {
-          "name": "updated_at",
-          "type": "timestamp",
-          "nullable": false
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
         }
       ],
       "indexes": [
@@ -46,18 +39,22 @@
     },
     {
       "name": "Question",
-      "created_at": true,
-      "updated_at": true,
+      "created_at": false,
+      "updated_at": false,
       "fields": [
         {
           "name": "survey_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
         },
         {
           "name": "question_text",
           "type": "text",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "response_type",
@@ -67,17 +64,9 @@
             "text",
             "multiple_choice",
             "rating"
-          ]
-        },
-        {
-          "name": "created_at",
-          "type": "timestamp",
-          "nullable": false
-        },
-        {
-          "name": "updated_at",
-          "type": "timestamp",
-          "nullable": false
+          ],
+          "isIndex": false,
+          "isUnique": false
         }
       ],
       "indexes": [
@@ -100,33 +89,29 @@
     },
     {
       "name": "Response",
-      "created_at": true,
-      "updated_at": true,
+      "created_at": false,
+      "updated_at": false,
       "fields": [
         {
           "name": "question_id",
           "type": "uuid",
-          "nullable": false
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
         },
         {
           "name": "response_value",
           "type": "text",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "respondent_id",
           "type": "uuid",
-          "nullable": true
-        },
-        {
-          "name": "created_at",
-          "type": "timestamp",
-          "nullable": false
-        },
-        {
-          "name": "updated_at",
-          "type": "timestamp",
-          "nullable": false
+          "nullable": true,
+          "isIndex": true,
+          "isUnique": false
         }
       ],
       "indexes": [
@@ -147,29 +132,22 @@
     },
     {
       "name": "Respondent",
-      "created_at": true,
-      "updated_at": true,
+      "created_at": false,
+      "updated_at": false,
       "fields": [
         {
           "name": "name",
           "type": "varchar",
-          "nullable": false
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
         },
         {
           "name": "email",
           "type": "varchar",
           "nullable": true,
-          "isUnique": true
-        },
-        {
-          "name": "created_at",
-          "type": "timestamp",
-          "nullable": false
-        },
-        {
-          "name": "updated_at",
-          "type": "timestamp",
-          "nullable": false
+          "isUnique": true,
+          "isIndex": false
         }
       ],
       "indexes": [],

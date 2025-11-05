@@ -5,8 +5,6 @@
 import {
   Column,
   Entity,
-  CreateDateColumn,
-  UpdateDateColumn,
   PrimaryGeneratedColumn,
   Generated,
   JoinColumn,
@@ -37,12 +35,6 @@ export class Question {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
-
   @Column({ type: 'uuid' })
   survey_id: string;
 
@@ -55,12 +47,6 @@ export class Question {
   @IsNotEmpty({ groups: [CREATE] })
   @Column({ type: 'varchar', length: 255, nullable: false })
   response_type: string;
-
-  @Column({ type: 'timestamp', nullable: false })
-  created_at: Date;
-
-  @Column({ type: 'timestamp', nullable: false })
-  updated_at: Date;
 
   // Associations
 }

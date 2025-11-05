@@ -8,10 +8,6 @@ export class SurveyCreate {
   title: string;
   @ApiProperty()
   description: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
 
 export class Survey {
@@ -21,12 +17,4 @@ export class Survey {
   title: string;
   @ApiProperty()
   description: string;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
-  @ApiProperty()
-  created_at: Date;
-  @ApiProperty()
-  updated_at: Date;
 }
